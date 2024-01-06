@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
+        <link rel="icon" href="/download.png">
         <title>Student Result System</title>
         <!-- Required meta tags -->
         <meta charset="utf-8" /> <meta  name="viewport" content="width=device-width initial-scale=1, shrink-to-fit=no"/>
@@ -14,13 +15,14 @@
         />
         <link rel="stylesheet" href="style.css">
     </head>
-    <body>
+    <body class="bg-black  bg-opacity-75 ">
 
 
-        <div class="container my-5 ">
+        <div class="container my-3 ">
             <div class="row justify-content-center ">
                 <div class="col-lg-10">
                     <button type="button" class="btn btn-sm btn-primary my-2" data-bs-target="#modal_content" data-bs-toggle="modal">Add new student</button>
+                    <a href="/search.html" class="btn btn-sm btn-info ">Search Result</a>
                     <div class="card shadow ">
                         <div class="card-body">
                             <div class="card-header text-center ">
@@ -51,6 +53,7 @@
         </div>
         </div>
         
+        <!-- student create modal FIXME:-->
        <div class="modal fade" id="modal_content">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -63,10 +66,11 @@
                     <form id="student_data">
                         <div class="my-3">
                             <input  class="w-100 my-2 form-control" type="text" placeholder="Name" name="name">
-                            <input class="w-100 my-2 form-control" type="text" placeholder="Roll" name="roll">
+                            <input  class="w-100 my-2 form-control" type="text" placeholder="Roll" name="roll">
                             <input class="w-100 my-2 form-control" type="text" placeholder="Reg" name="reg">
                             <input  class="w-100 my-2 form-control" type="text" placeholder="Photo" name="photo">
-                            <button class="btn btn-md btn-primary">Create</button>
+                            <button type="submit" class="btn btn-md btn-primary">Create</button>
+                            <button type="reset" class="btn btn-md btn-danger">Reset</button>
                         </div>
                     </form>
                 </div>
@@ -75,8 +79,109 @@
         </div>
        </div>
 
+       <!--single student edit TODO:-->
+       <div class="modal fade" id="modal_edit_content">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Edit student</h3>
+                    <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="edit_msg"></div>
+                    <form id="edit_student_data">
+                        <div class="my-2">
+                            <label for="">Name</label>
+                            <input  class="w-100 my-2 form-control" type="text" placeholder="Name" name="name">
+                            <input  class="w-100 my-2 form-control" type="hidden" placeholder="id" name="id">
+                            <label for="">Roll</label>
+                            <input  class="w-100 my-2 form-control" type="text" placeholder="Roll" name="roll">
+                            <label for="">Reg</label>
+                            <input class="w-100 my-2 form-control" type="text" placeholder="Reg" name="reg">
+                            <label for="">Photo</label>
+                            <input  class="w-100 my-2 form-control" type="text" placeholder="Photo" name="photo">
+                            <button type="submit" class="btn btn-md btn-primary">Update</button>
+                        </div>
+                        <div class="my-3">
+                            <img id="prevImg" src="" alt="">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+       </div>
 
-       <div class="modal fade" id="single_student_edit">
+
+       <!--add result FIXME:-->
+       <div class="modal fade" id="add_result_button">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Add Result</h3>
+                    <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="add_result_msg"></div>
+                    <form id="add_result_form">
+                        <div class="my-2">
+                            <label for="">Bangla</label>
+                            <input  class="w-100 my-2 form-control" type="text"  name="bangla">
+                            <label for="">English</label>
+                            <input  class="w-100 my-2 form-control" type="text"  name="english">
+                            <label for="">Math</label>
+                            <input class="w-100 my-2 form-control" type="text"  name="math">
+                            <label for="">Religion</label>
+                            <input  class="w-100 my-2 form-control" type="text"  name="religion">
+                            <label for="">Science</label>
+                            <input  class="w-100 my-2 form-control" type="text"  name="science">
+                            <label for="">S Science</label>
+                            <input  class="w-100 my-2 form-control" type="text"  name="social_science">
+                            <input  class="w-100 my-2 form-control" type="hidden" placeholder="id" name="id">
+                            <button type="submit" class="btn btn-md btn-primary">Update Result</button>
+                        </div>
+                    </form> 
+                </div>
+            </div>
+        </div>
+       </div>
+
+         <!--edit result FIXME:-->
+         <div class="modal fade" id="edit_result_button">
+            <div class="modal-dialog modal-dialog-centered ">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Edit Marks</h3>
+                        <button class="btn btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="add_result_msg"></div>
+                        <form id="edit_result_form">
+                            <h3 class="text-center student_name"></h3>
+                            <div class="my-2">
+                                <label for="">Bangla</label>
+                                <input  class="w-100 my-2 form-control" type="text"  name="bangla">
+                                <label for="">English</label>
+                                <input  class="w-100 my-2 form-control" type="text"  name="english">
+                                <label for="">Math</label>
+                                <input class="w-100 my-2 form-control" type="text"  name="math">
+                                <label for="">Religion</label>
+                                <input  class="w-100 my-2 form-control" type="text"  name="religion">
+                                <label for="">Science</label>
+                                <input  class="w-100 my-2 form-control" type="text"  name="science">
+                                <label for="">S Science</label>
+                                <input  class="w-100 my-2 form-control" type="text"  name="social_science">
+                                <input  class="w-100 my-2 form-control" type="hidden" placeholder="id" name="id">
+                                <button type="submit" class="btn btn-md btn-primary">Update Result</button>
+                            </div>
+                           
+                        </form> 
+                    </div>
+                </div>
+            </div>
+           </div>
+
+       <!-- student single view TODO:-->
+       <div class="modal fade" id="single_student_view">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content ">
                 <div class="modal-header  ">
@@ -84,10 +189,7 @@
                     <button class="btn btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body d-flex gap-3 single_student">
-                   
                 </div>
-               
-                
             </div>
         </div>
        </div>

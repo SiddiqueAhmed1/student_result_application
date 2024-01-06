@@ -154,7 +154,7 @@ student_data.onsubmit = (e) => {
         showStudents();
         location.reload();
     }
-    }
+}
 
 // editResult funciton
 const editResult = (id) => {
@@ -231,4 +231,4 @@ function deleteStudents(roll){
     }else{
         alert('Your data is safe!')
     }
-}   
+}
